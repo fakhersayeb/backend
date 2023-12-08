@@ -3,7 +3,7 @@ const bodyParser = require('body-parser');
 
 
 const avisroute = require('./routes/avisroute');
-//const videoroute = require('./routes/videoroute');
+const videoroute = require('./routes/videoroute');
 const http=require('http');
 const port = process.env.PORT || 3000;
 const cors = require('cors');
@@ -13,7 +13,7 @@ app.use(cors());
 app.use(bodyParser.urlencoded({extended : true}));
 app.use(bodyParser.json());
 app.use('/',avisroute);
-//app.use('/',videoroute);
+app.use('/',videoroute);
 app.use(function(req,res,next){
   res.header('Access-Control-Allow-Origin:*');
   res.header('Access-Control-Allow-Methods:GET,POST,PUT,DELETE');
